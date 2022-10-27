@@ -1,4 +1,3 @@
-import './app.css';
 import WebSock from './WebSock';
 
 function App() {

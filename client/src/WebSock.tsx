@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Message } from './types';
+import * as style from './app.css';
 
 const WebSock = () => {
   const [messages, setMessages] = useState<Array<Message>>([]);
@@ -45,8 +46,8 @@ const WebSock = () => {
 
   if (!connected) {
     return (
-            <div className="center">
-                <div className="form">
+            <div className={style.center}>
+                <div className={style.form}>
                     <input
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
@@ -59,19 +60,19 @@ const WebSock = () => {
   }
 
   return (
-        <div className="center">
+        <div className={style.center}>
             <div>
-                <div className="form">
+                <div className={style.form}>
                     <input value={value} onChange={(e) => setValue(e.target.value)} type="text" />
                     <button onClick={sendMessage}>Отправить</button>
                 </div>
-                <div className="messages">
+                <div className={style.message}>
                     {messages.map((mess) => <div key={mess.id}>
                         {mess.event === 'connection'
-                          ? <div className="connection_message">
+                          ? <div className={style.connection_message}>
                                 Пользователь {mess.username} подключился
                             </div>
-                          : <div className="message">
+                          : <div className={style.message}>
                                 {mess.username}. {mess.message}
                             </div>
                         }
